@@ -1,0 +1,32 @@
+#+TITLE: agent-shell-orchestrator
+
+Let any agent-shell create workers, message existing sessions, and inspect
+progress.
+Task tracking stays with your project.
+
+Small wrapper over agent-shell functions and a skill for agent to use it.
+
+Requires Emacs 29.1 and agent-shell 0.87.10+.
+
+* Getting started
+
+Install with Elpaca:
+
+#+begin_src emacs-lisp
+(use-package agent-shell-orchestrator
+  :ensure (:host github :repo "Gleek/agent-shell-orchestrator"
+           :files (:defaults "skills"))
+  :after agent-shell
+  :demand t)
+#+end_src
+
+Install [[file:skills/agent-shell-orchestrator/][the bundled skill directory]] separately in your agent's skills directory.
+Then ask a normal agent-shell to coordinate work, for example:
+“Check the agents in this project and report blockers.”
+
+See the [[file:skills/agent-shell-orchestrator/references/api.md][API reference]] for direct Elisp usage and limitations.
+
+* Development
+
+Load =agent-shell-orchestrator-test.el=, then run
+=M-x ert RET ^agent-shell-orchestrator-test- RET=.
